@@ -33,11 +33,11 @@ router.post("/:_id", async (req, res) => {
 //DELETE
 router.delete("/remove/:_id", async (req, res) => {
   //   let { _id } = req.params;
-  //   console.log(_id);
   //   res.send("此為刪除頁面");
   try {
     const { _id } = req.params;
     const task = await TodoTask.findOneAndDelete({ _id });
+    console.log("刪除:" + _id);
     res.redirect("/");
   } catch (e) {
     return res.status(500).send(e);
