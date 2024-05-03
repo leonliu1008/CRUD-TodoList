@@ -1,13 +1,15 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const MONGODB_URI =
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/crudDB";
 const TodoTask = require("./models/TodoTask");
 const editRoutes = require("./routes/edit-routes");
 const methodOverride = require("method-override");
 const Port = 8080;
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/crudDB")
+  .connect(MONGODB_URI)
   .then(() => {
     console.log("成功連結MongoDB...");
   })
