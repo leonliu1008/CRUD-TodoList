@@ -11,6 +11,7 @@ const Port = 8080;
 mongoose
   .connect(MONGODB_URI)
   .then(() => {
+    console.log("DB_URL:" + MONGODB_URI);
     console.log("成功連結MongoDB...");
   })
   .catch((e) => {
